@@ -21,6 +21,7 @@
     display: flex;
     justify-content: center;
     height: 100hv;
+    /* position: relative; */
    
     
  }
@@ -31,6 +32,7 @@
     /* background-color: blue; */
     padding: 100px;
     font-size: 20px;
+
  }
 
  h2{
@@ -54,7 +56,8 @@
      display: flex;
      justify-content: space-around;
      border: 2px solid rgb(12, 12, 12);
-     width: 30vw;
+     /* width: 50vw; */
+    
  }
  
  .form_connect{
@@ -68,6 +71,12 @@
  
  .column{
      flex-direction: column;
+ }
+ .grid{
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    justify-content: center;
+    grid-gap: 10px;
  }
  .pink{
      background-color: #F8DDDD;
@@ -115,8 +124,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    position: fixed;
     bottom: 0;
+    /* border: 2px solid rgb(219, 19, 19); */
  }
 
  /*@media  */

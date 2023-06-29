@@ -25,6 +25,7 @@
             <a href="">Recherche</a>
             <a href="inscription.php">Inscription</a>
             <a href="connexion.php">Connexion</a>
+            <a href="deconnexion.php">déconnexion</a>
             
         </nav>
              <!-- hamburger -->
@@ -33,4 +34,3 @@
         </div>
     </header>
     <script src="app.js"></script>
-    

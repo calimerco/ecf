@@ -9,6 +9,6 @@
 </head>
 <footer class="pink">
         <a href="contact.php">Contact</a>
-        <a href="accueil.php"><img src="fleche.svg" alt="fleche retour" title="fleche retour"> </a>
+        <a href=""><img src="fleche.svg" alt="fleche retour" title="fleche retour"> </a>
 </footer>
 </html>

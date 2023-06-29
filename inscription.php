@@ -83,8 +83,8 @@ if(isset($_POST['forminscription']))
                         var_dump($token);
                      echo 'tout est bon';
                      //    inserer une ligne membre dans la bdd ($bdd)
-                    //  $insertmbr = $bdd->prepare("INSERT INTO users(pseudo, mail, mdp, date_inscri, nom, prenom, adresse, tel, role, isactive, mdpNs, validation_token) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                    //  $insertmbr->execute(array($pseudo, $mail, $mdpS, $date, $nom, $prenom, $adresse, $tel, $role,$isactive, $mdp, $token));
+                     $insertmbr = $bdd->prepare("INSERT INTO users(pseudo, mail, mdp, date_inscri, nom, prenom, adresse, tel, role, isactive, mdpNs, validation_token) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                     $insertmbr->execute(array($pseudo, $mail, $mdpS, $date, $nom, $prenom, $adresse, $tel, $role,$isactive, $mdp, $token));
                      //    message de creation d'espace membre
                      $erreur = "votre compte a bien été créé ! <a href=\"connexion.php\">Me connecter</>";
 
