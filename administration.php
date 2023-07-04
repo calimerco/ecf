@@ -1,8 +1,11 @@
 <?php
-// session_start();
+session_start();
 require 'header.php';
 require 'functions.php';
 require 'bdd.php';
+?>
+<?php
+var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -10,7 +13,7 @@ require 'bdd.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>espace connexion administrateur</title>
+    <title>espace administrateur</title>
 </head>
 <main>
    <div align="center" class="column">

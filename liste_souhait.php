@@ -1,5 +1,19 @@
 <?php
-
+session_start();
+require 'header.php';
+require 'functions.php';
+require 'bdd.php';
+var_dump($_SESSION);
+var_dump($_SESSION['liste']);
+$liste = $_SESSION['liste'];
+?>
+<?php
+$id_user = $_SESSION['id_user'];
+// recupere les souhaits corresppondants à variablesession [id_user] 
+$q = $bdd->prepare("SELECT * FROM souhaits WHERE id_user = :id_user");
+$q->bindvalue('id_user', $id_user);
+$q->execute();
+$souhait = $q->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +27,7 @@
 </head>
 <main>
    <div class="container column grey" align="center">
-       <h2>Créer une liste de souhait</h2>
+       <h2>Vos listes de souhait</h2>
        <!-- <br/><br/> -->
        
        

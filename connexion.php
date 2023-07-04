@@ -35,7 +35,7 @@ require 'bdd.php';
 
                var_dump($_SESSION);
                // rediriger l'utilisateur vers l'espace administration
-            //    header('Location: administration.php');
+               header('Location: administration.php');
            }
            else
            {
