@@ -3,8 +3,10 @@ session_start();
 require 'header.php';
 require 'functions.php';
 require 'bdd.php';
-var_dump($_SESSION)
+var_dump($_SESSION);
+
 ?>
+              
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,11 +14,12 @@ var_dump($_SESSION)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="STYLE.CSS" rel="stylesheet">
-    <title>TUTO PHP</title>
+    <title>modifier mon proofil</title>
+    
 </head>
 <main>
    <div class="container column grey" align="center">
-       <h2>Votre compte</h2>
+       <h2>Modifier mon proofil</h2>
        <!-- <br/><br/> -->
        
        

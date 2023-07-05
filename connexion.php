@@ -57,10 +57,10 @@ require 'bdd.php';
                         $passwordhash = $userinfo->mdp;
                         if(password_verify($mdpconnect, $passwordhash))
                         { 
-                            $_SESSION['id'] = $userinfo->id_user;
+                            $_SESSION['id_user'] = $userinfo->id_user;
                             $_SESSION['pseudo'] = $userinfo->pseudo;
                             $_SESSION['mail'] = $userinfo->mail;
-                            header("Location: mon_compte.php?id=".$_SESSION['id']);
+                            header("Location: mon_compte.php");
                         }
                         else
                         {

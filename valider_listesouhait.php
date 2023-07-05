@@ -98,7 +98,7 @@ endforeach;
         var_dump($contenu_souh);
         var_dump($is_active);
 
-
+        // implementer le tablo souhaits
         $sql = "INSERT INTO souhaits (id_user, contenu_souh, is_active) VALUES (:id_user, :contenu_souh, :is_active) ";
         $stmt = $bdd->prepare($sql);
         $stmt->bindParam(':id_user', $id_user);
@@ -113,6 +113,7 @@ endforeach;
         $id_souhait_insrt = $bdd->lastInsertId();;
         var_dump($id_souhait_insrt);
         $id_user = $_SESSION['id_user'];
+        // insertion dans  le tablo souhait_article
         foreach($liste as $article):
             $sql = "INSERT INTO souhait_article (id_souhait, id_article, id_user) VALUES (:id_souhait, :id_article, :id_user) ";
             $stmt = $bdd->prepare($sql);
@@ -122,7 +123,7 @@ endforeach;
             $stmt->execute();
         endforeach;
 
-        echo "TABLEAU 'souhait_article' INCREMENTE";
+        echo "TABLEAU 'souhait_article' REMPLI";
 
 
        }

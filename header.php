@@ -21,11 +21,16 @@
         </div> -->
 <!-- NAVBAR -->
         <nav class="navlinks_cont grey">
-            <a href="accueil.php">Accueil</a>
+            <!-- PROBLEME -->
+            <?php if(isset($_SESSION['id_user']) || $_SESSION['id_user'] !== 7) { echo '<a href="mon_compte.php">mon compte</a>';} 
+                           if($_SESSION['id_user'] == 7) { echo '<a href="administration.php">administration</a>';}   ?>
             <a href="">Recherche</a>
-            <a href="inscription.php">Inscription</a>
-            <a href="connexion.php">Connexion</a>
-            <a href="deconnexion.php">déconnexion</a>
+            <?php if(!isset($_SESSION['id_user'])) { echo '<a href="inscription.php">Inscription</a>';} ?>
+            <?php if(!isset($_SESSION['id_user'])) { echo '<a href="connexion.php">Connexion</a>';} ?>
+            <a href="catalogue_article.php">Catalogue</a>
+            <?php if(isset($_SESSION['id_user'])) { echo '<a href="deconnexion.php">déconnexion</a>';} ?>
+            <?php if(isset($_SESSION['id_user'])) { echo '<a href="valider_listesouhait.php">Valider ma liste</a>';} ?>
+            <?php if(isset($_SESSION['id_user'])) { echo '<a href="modifier_profil.php">modifier profil</a>';} ?>
             
         </nav>
              <!-- hamburger -->

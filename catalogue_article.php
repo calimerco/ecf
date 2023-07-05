@@ -75,12 +75,22 @@ var_dump($articles);
 
                                 echo '<div>
                                     <!-- Insérer id_user et id-usercom dans l\'URL afin de les récupérer dans les pages de destination -->
-                                    <!-- <a href="ecrire_commentaire.php?id_usercom=' . $id_user . '&id_article=' . $id_article . '">Commenter</a> -->
                                     <a href="ajouter_article.php?id_article=' . $id_article . '&id_user=' . $id_user . '">Ajouter</a>
+                                      </div>';
+                            } 
+                            if ($_SESSION['id_user'] == 7)
+                            {
+                                echo '<div>
+                                    <!-- Insérer id_user et id-usercom dans l\'URL afin de les récupérer dans les pages de destination -->
+                                    
+                                
                                     <a>Désactiver</a>
                                     <a>Supprimer</a>
+                                    
                                       </div>';
-                            } else 
+
+                            }
+                            else 
                             {
                                 echo 'CONNECTEZ-VOUS!';
                             }

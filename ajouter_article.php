@@ -5,6 +5,8 @@ require 'functions.php';
 require 'bdd.php';
 ?>
 <?php
+
+// PANIER
    
 //    var_dump($_GET);
 //    var_dump($_GET['id_article']);
@@ -36,6 +38,7 @@ require 'bdd.php';
                 }
 
                 $_SESSION['liste'][$id_articleSecu] += 1;
+                echo 'article ajouté à votre liste.Vous pouvez valider votre liste en cliquant sur valider ma liste ';
                 var_dump($_SESSION['liste']);
             }
             else 
