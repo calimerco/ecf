@@ -1,10 +1,11 @@
 <?php
+session_start();
 require 'header.php';
 require 'functions.php';
 require 'bdd.php';
 ?>
 <?php
-   session_start();
+   
    if(isset($_POST['connexion']))
    {
        if(!empty($_POST['mail']) AND !empty($_POST['mdp']))
@@ -32,7 +33,7 @@ require 'bdd.php';
                $_SESSION['pseudo'] = $adminfo->pseudo;
                $_SESSION['mdp'] = $mdp_saisi;
                $_SESSION['id_user'] = $adminfo->id_user;
-
+               echo 'voici la SESSION';
                var_dump($_SESSION);
                // rediriger l'utilisateur vers l'espace administration
                header('Location: administration.php');
@@ -51,7 +52,7 @@ require 'bdd.php';
                     $requser->execute();
                     $userexist = $requser->rowCount();
                     $userinfo = $requser->fetch();
-                    var_dump($userinfo);
+                    // var_dump($userinfo);
                     if($userexist == 1)
                     {
                         $passwordhash = $userinfo->mdp;
@@ -60,6 +61,7 @@ require 'bdd.php';
                             $_SESSION['id_user'] = $userinfo->id_user;
                             $_SESSION['pseudo'] = $userinfo->pseudo;
                             $_SESSION['mail'] = $userinfo->mail;
+                            var_dump($_SESSION);
                             header("Location: mon_compte.php");
                         }
                         else

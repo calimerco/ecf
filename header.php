@@ -10,9 +10,10 @@
 
     
     <header class="pink" >
+
 <!-- LOGO -->
         <!-- <div class="logo"> -->
-           <img class="logo1" src="Glogo.svg" alt="imoji diablotin" title="logo svg" >
+           <img class="logo1" src="" alt="imoji diablotin" title="logo svg">
            <img class="logo2" src="logo2.svg" alt="imoji diablotin" title="logo svg" >
         <!-- </div> -->
 <!-- ACCESS PRO -->
@@ -22,8 +23,8 @@
 <!-- NAVBAR -->
         <nav class="navlinks_cont grey">
             <!-- PROBLEME -->
-            <?php if(isset($_SESSION['id_user']) || $_SESSION['id_user'] !== 7) { echo '<a href="mon_compte.php">mon compte</a>';} 
-                           if($_SESSION['id_user'] == 7) { echo '<a href="administration.php">administration</a>';}   ?>
+            <?php if(isset($_SESSION['id_user']) ) { echo '<a href="mon_compte.php">mon compte</a>';} ?>
+            <!-- <?php if($_SESSION['id_user'] == 7) { echo '<a href="administration.php">administration</a>';}   ?> -->
             <a href="">Recherche</a>
             <?php if(!isset($_SESSION['id_user'])) { echo '<a href="inscription.php">Inscription</a>';} ?>
             <?php if(!isset($_SESSION['id_user'])) { echo '<a href="connexion.php">Connexion</a>';} ?>

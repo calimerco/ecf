@@ -1,10 +1,11 @@
 <?php
+session_start();
 require 'header.php';
 require 'functions.php';
 require 'bdd.php';
 ?>
 <?php
-   session_start();
+   
 
 ?>
 
@@ -21,10 +22,10 @@ require 'bdd.php';
        <h2>Ecrire un commentaire</h2>
        <br/><br/>
        <form method="post" action="" class="form_connect">
-          <input type="email" name="mail" placeholder="Mail" autocomplete="off"/>
-          <!-- <input type="text" name="pseudo" placeholder="Pseudo" autocomplete="off" /> -->
-          <input type="password" name="mdp" placeholder="Mot de passe" autocomplete="off"/>
-          <input type="submit" name="connexion" value="Se connecter" />         
+          <!-- <input type="email" name="mail" placeholder="Mail" autocomplete="off"/> -->
+          <input type="text" name="comment" placeholder="Votre commentaire" autocomplete="off" />
+          <!-- <input type="password" name="mdp" placeholder="Mot de passe" autocomplete="off"/> -->
+          <input type="submit" name="envoyer_comment" value="Envoyer" />         
        </form>
        <a href="mdp_oublie.php">mot de passe oublié</a>
        <br/><br/><br/><br/>

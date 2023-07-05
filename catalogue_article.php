@@ -78,7 +78,7 @@ var_dump($articles);
                                     <a href="ajouter_article.php?id_article=' . $id_article . '&id_user=' . $id_user . '">Ajouter</a>
                                       </div>';
                             } 
-                            if ($_SESSION['id_user'] == 7)
+                            if (isset($_SESSION['id_user']) AND $_SESSION['id_user'] == 7)
                             {
                                 echo '<div>
                                     <!-- Insérer id_user et id-usercom dans l\'URL afin de les récupérer dans les pages de destination -->

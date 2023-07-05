@@ -1,9 +1,10 @@
 <?php
 session_start();
+
 require 'header.php';
 require 'functions.php';
 require 'bdd.php';
-var_dump($_SESSION)
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
