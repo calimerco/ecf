@@ -42,9 +42,10 @@ endforeach;
        <!-- <br/><br/> -->
        <section class="grid">
             <?php 
-            if(isset($_SESSION['liste']))
+            if(isset($liste))
             {
-                foreach($liste as $article): 
+        
+                foreach($liste as $key => $value): 
                 ?>
 
                 <?php 
@@ -80,8 +81,9 @@ endforeach;
                                 echo '<div>
                                     <!-- Insérer id_user et id-usercom dans l\'URL afin de les récupérer dans les pages de destination -->
                                     <!-- <a href="ecrire_commentaire.php?id_usercom=' . $id_user . '&id_article=' . $id_article . '">Commenter</a> -->
-                                    <a href="ajouter_article.php?id_article=' . $id_article . '&id_user=' . $id_user . '">Ajouter</a>
-                                    <a>Supprimer</a>
+                                    <!-- <a href="ajouter_article.php?id_article=' . $id_article . '&id_user=' . $id_user . '">Ajouter</a> -->
+                                    
+                                    <a type="submit">Supprimer</a>
                                         </div>';
                             } else 
                             {
@@ -90,6 +92,7 @@ endforeach;
                     ?>
 
                 </article>
+                
                 
             <?php endforeach; 
              }
@@ -106,7 +109,7 @@ endforeach;
           <input type="submit" name="inserer_liste" value="Insérer la liste" />         
        </form>
        <?php
-       if(isset($_POST['contenu_souh']))
+       if(!empty($_POST['contenu_souh']))
        {
         $id_user = $_SESSION['id_user'];
         $contenu_souh = $_POST['contenu_souh'];

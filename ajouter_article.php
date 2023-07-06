@@ -33,12 +33,15 @@ require 'bdd.php';
                 {
                     //  créer une liste vide
                     $_SESSION['liste'] = array();
-                    $_SESSION['liste'][$id_articleSecu] += 1;
+                    $_SESSION['liste'][$id_articleSecu] = 1;
+                    echo 'article ajouté à votre liste.Vous pouvez valider votre liste en cliquant sur valider ma liste ';
                 }
-
-                $_SESSION['liste'][$id_articleSecu] += 1;
-                echo 'article ajouté à votre liste.Vous pouvez valider votre liste en cliquant sur valider ma liste ';
+                else{
+                    $_SESSION['liste'][$id_articleSecu] += 1;
+                    echo 'article ajouté à votre liste.Vous pouvez valider votre liste en cliquant sur valider ma liste ';
+                }
                 var_dump($_SESSION['liste']);
+
             }
             else 
             {
@@ -83,7 +86,7 @@ require 'bdd.php';
        </form> -->
        <!-- <a href="mdp_oublie.php">mot de passe oublié</a> -->
        <a href="catalogue_article.php">Retour au catalogue des articles</a>
-       <a href="valider_listesouhait.php">Valider votre liste de souhaits</a>
+       <a href="valider_listesouhait.php">Visualiser votre liste de souhaits</a>
        <br/><br/><br/><br/>
        <?php
        if(isset($erreur))

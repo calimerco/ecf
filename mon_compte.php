@@ -19,7 +19,9 @@ require 'bdd.php';
    <div class="container column grey" align="center">
        <h2>Votre compte</h2>
        <!-- <br/><br/> -->
-       <?php if(isset($_SESSION['id_user'])) { echo '<a href="valider_listesouhait.php" title="Enregistrer votre liste de souhait">Valider ma liste</a>';} ?>
+       <?php if(isset($_SESSION['id_user'])) { echo '<a href="valider_listesouhait.php" title="Enregistrer votre liste de souhait en cours">Visualiser ma liste de souhaits en cours de création</a>';} ?>
+       <?php if(isset($_SESSION['id_user'])) { echo '<a href="liste_souhait_user.php" title="vos listes de souhait existantes">Visualiser mes listes de souhaits déja crées</a>';} ?>
+       <?php if(isset($_SESSION['id_user'])) { echo '<a href="liste_coment_usercom.php" title="vos listes de souhait existantes">Visualiser mes commentaires</a>';} ?>
        <?php if(isset($_SESSION['id_user'])) { echo '<a href="modifier_profil.php">modifier profil</a>';} ?>
        
        

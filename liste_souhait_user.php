@@ -28,14 +28,14 @@ var_dump($all_souhait);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="STYLE.CSS" rel="stylesheet">
-    <title>toutes les listes de souhaits</title>
+    <title>toutes vos listes de souhaits</title>
 </head>
 <body>
 <?php require 'header.php';?>
 <main>
 
    <div class="container column grey" align="center">
-       <h2>Voici toutes les listes de souhaits</h2>
+       <h2>Voici toutes vos listes de souhaits</h2>
        <!-- <br/><br/> -->
        <section class="grid pink">
             <?php foreach($all_souhait as $souhait): ?>

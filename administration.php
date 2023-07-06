@@ -22,8 +22,9 @@ var_dump($_SESSION);
        <h2>Espace administrateur</h2>
        <br/><br/>
        <a href="liste_users.php">Liste des utilisateurs</a>
-       <a href="liste_articles.php">Liste des articles</a>
+       <a href="catalogue_article.php">Catalogue des articles</a>
        <a href="liste_commentaires.php">Liste des commentaires</a>
+       <a href="liste_souhait.php">Afficher toutes les liste des souhaits</a>
        <br/><br/><br/><br/>
        <?php
        if(isset($erreur))
