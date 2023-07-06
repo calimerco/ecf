@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-require 'header.php';
 require 'functions.php';
 require 'bdd.php';
 
@@ -13,12 +11,16 @@ require 'bdd.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="STYLE.CSS" rel="stylesheet">
-    <title>TUTO PHP</title>
+    <title>Votre compte</title>
 </head>
+<body>
+<?php require 'header.php';?>
 <main>
    <div class="container column grey" align="center">
        <h2>Votre compte</h2>
        <!-- <br/><br/> -->
+       <?php if(isset($_SESSION['id_user'])) { echo '<a href="valider_listesouhait.php" title="Enregistrer votre liste de souhait">Valider ma liste</a>';} ?>
+       <?php if(isset($_SESSION['id_user'])) { echo '<a href="modifier_profil.php">modifier profil</a>';} ?>
        
        
        
@@ -31,6 +33,8 @@ require 'bdd.php';
     </div>
 
 </main>
+<script src="app.js"></script>
+</body>
     <?php
     require_once 'footer.php';
     ?>

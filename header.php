@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <title>Accueil</title>
     <link href="STYLE.CSS" rel="stylesheet">
 </head>
-
+ -->
     
     <header class="pink" >
 
@@ -23,15 +23,30 @@
 <!-- NAVBAR -->
         <nav class="navlinks_cont grey">
             <!-- PROBLEME -->
+            <?php if(!empty($_SESSION))
+            { ?>
             <?php if(isset($_SESSION['id_user']) ) { echo '<a href="mon_compte.php">mon compte</a>';} ?>
-            <!-- <?php if($_SESSION['id_user'] == 7) { echo '<a href="administration.php">administration</a>';}   ?> -->
-            <a href="">Recherche</a>
+            <?php if($_SESSION['id_user'] == 7) { echo '<a href="administration.php">administration</a>';}   ?> 
+           
+            <a href="moteur_recherche.php">Recherche</a>
             <?php if(!isset($_SESSION['id_user'])) { echo '<a href="inscription.php">Inscription</a>';} ?>
             <?php if(!isset($_SESSION['id_user'])) { echo '<a href="connexion.php">Connexion</a>';} ?>
             <a href="catalogue_article.php">Catalogue</a>
+            <?php if(isset($_SESSION['id_user'])) { echo '<a href="liste_souhait.php" title="voire toutes les listes de souhait">liste de souhaits</a>';} ?>
             <?php if(isset($_SESSION['id_user'])) { echo '<a href="deconnexion.php">déconnexion</a>';} ?>
-            <?php if(isset($_SESSION['id_user'])) { echo '<a href="valider_listesouhait.php">Valider ma liste</a>';} ?>
-            <?php if(isset($_SESSION['id_user'])) { echo '<a href="modifier_profil.php">modifier profil</a>';} ?>
+            <?php
+            }
+            else
+            {
+                echo '<a href="moteur_recherche.php">Recherche</a>';
+                echo '<a href="inscription.php">Inscription</a>';
+                echo '<a href="connexion.php">Connexion</a>';
+
+            }
+            ?>
+            
+            
+            
             
         </nav>
              <!-- hamburger -->
@@ -39,4 +54,4 @@
                 <span></span>
         </div>
     </header>
-    <script src="app.js"></script>
+  <!--   <script src="app.js"></script> -->

@@ -1,12 +1,15 @@
 <?php
 session_start();
-require 'header.php';
 require 'functions.php';
 require 'bdd.php';
 var_dump($_SESSION);
-$liste = $_SESSION['liste'];
-$id_user = $_SESSION['id_user'];
-var_dump($id_user);
+
+if(isset($_SESSION['id_user']))
+{
+    $id_user = $_SESSION['id_user'];
+    var_dump($id_user);
+} 
+
 ?>
 <?php
 
@@ -27,7 +30,10 @@ var_dump($all_souhait);
     <link href="STYLE.CSS" rel="stylesheet">
     <title>toutes les listes de souhaits</title>
 </head>
+<body>
+<?php require 'header.php';?>
 <main>
+
    <div class="container column grey" align="center">
        <h2>Voici toutes les listes de souhaits</h2>
        <!-- <br/><br/> -->
@@ -49,7 +55,7 @@ var_dump($all_souhait);
                 $article_souhait = $req->fetchAll();
                 
                 ?>
-                <article class="grid-item">
+                <article class="grid-item grey">
                     <h1>ID de la liste de souhaits :<?= $id_souhait ?></h1>
                     <p>formulée par : <?= $id_user ?></p>
                     <p>Contenu : <?= $contenu_souh ?></p>
@@ -104,6 +110,8 @@ var_dump($all_souhait);
     </div>
 
 </main>
+<script src="app.js"></script>
+</body>
     <?php
     require_once 'footer.php';
     ?>

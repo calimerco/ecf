@@ -1,6 +1,5 @@
 <?php
 session_start();
-require 'header.php';
 require 'functions.php';
 require 'bdd.php';
 var_dump($_SESSION);
@@ -17,6 +16,8 @@ var_dump($_SESSION);
     <title>modifier mon proofil</title>
     
 </head>
+<body>
+<?php require 'header.php';?>
 <main>
    <div class="container column grey" align="center">
        <h2>Modifier mon proofil</h2>
@@ -33,6 +34,8 @@ var_dump($_SESSION);
     </div>
 
 </main>
+<script src="app.js"></script>
+</body>
     <?php
     require_once 'footer.php';
     ?>

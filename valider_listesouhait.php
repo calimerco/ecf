@@ -1,8 +1,9 @@
 <?php
 session_start();
-require 'header.php';
 require 'functions.php';
 require 'bdd.php';
+if(isset($_SESSION['liste']))
+{
 var_dump($_SESSION);
 var_dump($_SESSION['liste']);
 $liste = $_SESSION['liste'];
@@ -11,6 +12,7 @@ foreach($liste as $key => $value):
     echo $key ;
   
 endforeach;
+}
 ?>
               
 <!DOCTYPE html>
@@ -32,12 +34,19 @@ endforeach;
         }
     </style>
 </head>
+<body>
+<?php require 'header.php';?>
 <main>
    <div class="container column grey" align="center">
        <h2>liste de souhait en cours de création</h2>
        <!-- <br/><br/> -->
        <section class="grid">
-            <?php foreach($liste as $article): ?>
+            <?php 
+            if(isset($_SESSION['liste']))
+            {
+                foreach($liste as $article): 
+                ?>
+
                 <?php 
                     $sql = "SELECT * FROM articles WHERE id_article = $key ";
                     $requete = $bdd->query($sql);
@@ -50,7 +59,7 @@ endforeach;
                     $photo = $article->photo;
                             
                 ?>
-                 <article class="grid-item">
+                <article class="grid-item">
                     <h1><?= $nom_article ?></h1>
                     <p>inscrit le <?= $date_ajout ?></p>   
                     <p>id_article = <?= $id_article ?></p>                
@@ -73,7 +82,7 @@ endforeach;
                                     <!-- <a href="ecrire_commentaire.php?id_usercom=' . $id_user . '&id_article=' . $id_article . '">Commenter</a> -->
                                     <a href="ajouter_article.php?id_article=' . $id_article . '&id_user=' . $id_user . '">Ajouter</a>
                                     <a>Supprimer</a>
-                                      </div>';
+                                        </div>';
                             } else 
                             {
                                 echo 'CONNECTEZ-VOUS!';
@@ -81,15 +90,23 @@ endforeach;
                     ?>
 
                 </article>
-               
-            <?php endforeach; ?>
+                
+            <?php endforeach; 
+             }
+             else
+             {
+                echo
+                'votre liste de souhait ne contient aucun article, veuillez selectionner un ou plusieurs articles.</br>
+                la variable SESSION liste est vide';
+
+             } ?>
        </section>
-       <form method="post" action="" class="form_connect">
+       <form method="post" action="" class="flex">
           <textarea placeholder="votre commentaire" name="contenu_souh"></textarea>
           <input type="submit" name="inserer_liste" value="Insérer la liste" />         
        </form>
        <?php
-       if($_POST)
+       if(isset($_POST['contenu_souh']))
        {
         $id_user = $_SESSION['id_user'];
         $contenu_souh = $_POST['contenu_souh'];
@@ -98,7 +115,7 @@ endforeach;
         var_dump($contenu_souh);
         var_dump($is_active);
 
-        // implementer le tablo souhaits
+        // remplir le tablo souhaits
         $sql = "INSERT INTO souhaits (id_user, contenu_souh, is_active) VALUES (:id_user, :contenu_souh, :is_active) ";
         $stmt = $bdd->prepare($sql);
         $stmt->bindParam(':id_user', $id_user);
@@ -129,7 +146,9 @@ endforeach;
        }
        else
        {
-        echo "La variable post 'inserer_liste' n'existe pas";
+        echo 
+        "votre commentaire est vide , veuillez remplir le champs ci-dessus.</br>
+        La variable post 'contenu_souh' n'existe pas";
        }
 
        ?>
@@ -149,6 +168,8 @@ endforeach;
     </div>
 
 </main>
+<script src="app.js"></script>
+</body>
     <?php
     require_once 'footer.php';
     ?>

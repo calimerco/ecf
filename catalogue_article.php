@@ -1,6 +1,5 @@
 <?php
 session_start();
-require 'header.php';
 require 'functions.php';
 require 'bdd.php';
 var_dump($_SESSION);
@@ -43,6 +42,8 @@ var_dump($articles);
     <title>Catalogue des articles</title>
     
 </head>
+<body>
+<?php require 'header.php';?>
 <main>
    <div class="container column grey" align="center">
        <h2>Catalogue des articles</h2>
@@ -55,7 +56,7 @@ var_dump($articles);
                 $id_article = $article->id_article;
                 $photo = $article->photo;
                 ?>
-                <article class="grid-item">
+                <article class="grid-item grey">
                     <h1><?= $nom_article ?></h1>
                     <p>inscrit le <?= $date_ajout ?></p>   
                     <p>id_article = <?= $id_article ?></p>                
@@ -71,25 +72,23 @@ var_dump($articles);
                             if (isset($_SESSION['id_user'])) 
                             {
                                 $id_user = $_SESSION['id_user'];
-                                $id_article = $id_article; // Assurez-vous que la variable $id_article est définie
-
-                                echo '<div>
-                                    <!-- Insérer id_user et id-usercom dans l\'URL afin de les récupérer dans les pages de destination -->
-                                    <a href="ajouter_article.php?id_article=' . $id_article . '&id_user=' . $id_user . '">Ajouter</a>
-                                      </div>';
-                            } 
-                            if (isset($_SESSION['id_user']) AND $_SESSION['id_user'] == 7)
-                            {
-                                echo '<div>
-                                    <!-- Insérer id_user et id-usercom dans l\'URL afin de les récupérer dans les pages de destination -->
-                                    
                                 
-                                    <a>Désactiver</a>
-                                    <a>Supprimer</a>
-                                    
-                                      </div>';
+                                echo 
+                                '<div>
+                                    <!-- Insérer id_user et id-usercom dans l\'URL afin de les récupérer dans les pages de destination -->
+                                    <a href="ajouter_article.php?id_article=' . $id_article . '&id_user=' . $id_user . '">Ajouter à votre liste de souhaits</a>
+                                 </div>';
+                                 if ($_SESSION['id_user'] == 7)
+                                {
+                                    echo 
+                                    '<div>  
+                                        <a>Désactiver</a>
+                                        <a>Supprimer</a>   
+                                    </div>';
 
-                            }
+                                }
+                            } 
+                             
                             else 
                             {
                                 echo 'CONNECTEZ-VOUS!';
@@ -110,6 +109,8 @@ var_dump($articles);
     </div>
 
 </main>
+<script src="app.js"></script>
+</body>
     <?php
     require_once 'footer.php';
     ?>

@@ -1,6 +1,5 @@
 <?php
 session_start();
-require 'header.php';
 require 'functions.php';
 require 'bdd.php';
 ?>
@@ -107,12 +106,15 @@ require 'bdd.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>espace connexion administrateur</title>
+    <link href="STYLE.CSS" rel="stylesheet">
 </head>
+<body>
+<?php require 'header.php';?>
 <main>
    <div align="center" class="column">
        <h2>Connexion</h2>
        <br/><br/>
-       <form method="post" action="" class="form_connect">
+       <form method="post" action="" class="flex">
           <input type="email" name="mail" placeholder="Mail" autocomplete="off"/>
           <!-- <input type="text" name="pseudo" placeholder="Pseudo" autocomplete="off" /> -->
           <input type="password" name="mdp" placeholder="Mot de passe" autocomplete="off"/>
@@ -129,6 +131,9 @@ require 'bdd.php';
 
     </div>  
 </main>
+<script src="app.js"></script>
+</body>
+
 <?php
     require_once 'footer.php';
 ?>

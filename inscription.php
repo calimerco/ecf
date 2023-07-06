@@ -1,5 +1,4 @@
 <?php
-require 'header.php';
 require 'functions.php';
 require 'bdd.php';
 ?>
@@ -141,6 +140,8 @@ if(isset($_POST['forminscription']))
     <link href="STYLE.CSS" rel="stylesheet">
     <title>TUTO PHP</title>
 </head>
+<body>
+<?php require 'header.php';?>
 <main>
    <div class="container column grey" align="center">
        <h2>Inscription</h2>
@@ -201,6 +202,8 @@ if(isset($_POST['forminscription']))
     </div>
 
     </main>
+    <script src="app.js"></script>
+</body>
     <?php
     require_once 'footer.php';
     ?>

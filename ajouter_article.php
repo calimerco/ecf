@@ -1,6 +1,5 @@
 <?php
 session_start();
-require 'header.php';
 require 'functions.php';
 require 'bdd.php';
 ?>
@@ -11,7 +10,7 @@ require 'bdd.php';
 //    var_dump($_GET);
 //    var_dump($_GET['id_article']);
    var_dump($_SESSION);
-   var_dump($_SESSION['liste']);
+   if(isset($_SESSION['liste'])){var_dump($_SESSION['liste']);}
    if(isset($_GET['id_article']))
    {
         $id_article = $_GET['id_article'];
@@ -60,8 +59,6 @@ require 'bdd.php';
     $erreur = "variable GET 'id_article' non trouvée! veuilleez seléctionner un article.";
    }
    
-   var_dump($_SESSION['liste']);
-
 ?>
 
 <!DOCTYPE html>
@@ -72,6 +69,8 @@ require 'bdd.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter un article</title>
 </head>
+<body>
+<?php require 'header.php';?>
 <main>
    <div align="center"  class="column">
        <h2>L'article id_article=<?php if(isset($_GET['id_article'])){ echo $id_article;} ?> a été ajouté à votre liste de souhait</h2>
@@ -95,6 +94,8 @@ require 'bdd.php';
 
     </div>  
 </main>
+<script src="app.js"></script>
+</body>
 <?php
     require_once 'footer.php';
 ?>
